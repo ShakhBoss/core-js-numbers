@@ -288,14 +288,18 @@ function getFibonacciNumber(/* index */) {
  *   10 => 55 // (1+2+3+...+10)
  *   1  => 1
  */
-function getSumToN(/* n */) {
-  throw new Error('Not implemented');
+function getSumToN(n) {
+  let sum = 0;
+  for (let i = 0; i <= n; i += 1) {
+    sum += i;
+  }
+  return sum;
 }
 
 /**
  * Returns the sum of the digits of a given number.
  *
- * @param {number} num
+ * @param {number} num1
  * @return {number}
  *
  * @example:
@@ -303,8 +307,15 @@ function getSumToN(/* n */) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  throw new Error('Not implemented');
+function getSumOfDigits(num1) {
+  let num2 = num1;
+  let sum1 = 0;
+  while (num2 > 0) {
+    const lastDigit = num2 % 10;
+    sum1 += lastDigit;
+    num2 = Math.floor(num2 / 10);
+  }
+  return sum1;
 }
 
 /**
@@ -318,8 +329,18 @@ function getSumOfDigits(/* num */) {
  *   16  => true
  *   15  => false
  */
-function isPowerOfTwo(/* num */) {
-  throw new Error('Not implemented');
+function isPowerOfTwo(num) {
+  let num3 = num;
+  if (num3 < 1) {
+    return false;
+  }
+  while (num3 > 1) {
+    if (num3 % 2 !== 0) {
+      return false;
+    }
+    num3 /= 2;
+  }
+  return true;
 }
 
 /**
@@ -332,8 +353,8 @@ function isPowerOfTwo(/* num */) {
  *   0 => 0
  *   Math.PI / 2 => 1
  */
-function getSine(/* num */) {
-  throw new Error('Not implemented');
+function getSine(num) {
+  return Math.sin(num);
 }
 
 /**
@@ -347,8 +368,13 @@ function getSine(/* num */) {
  * 255, 16 => 'ff'
  * 2, 2    => '10'
  */
-function numberToStringInBase(/* number, base */) {
-  throw new Error('Not implemented');
+function numberToStringInBase(number, base) {
+  if (base < 2 || base > 36) {
+    return 'Invalid radix. Please use a radix between 2 and 36.';
+  }
+  // Use toString() with the specified radix
+  const result = number.toString(base);
+  return result;
 }
 
 /**
@@ -361,8 +387,9 @@ function numberToStringInBase(/* number, base */) {
  * @example:
  * 12345, 2    => '1.23e+4'
  */
-function toExponential(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toExponential(number, fractionDigits) {
+  const result = number.toExponential(fractionDigits);
+  return result;
 }
 
 /**
@@ -376,8 +403,9 @@ function toExponential(/* number, fractionDigits */) {
  * 12345, 2    => '12345.00'
  * 12.345, 1   => '12.3'
  */
-function toFixed(/* number, fractionDigits */) {
-  throw new Error('Not implemented');
+function toFixed(number, fractionDigits) {
+  const result = number.toFixed(fractionDigits);
+  return result;
 }
 
 /**
@@ -392,8 +420,9 @@ function toFixed(/* number, fractionDigits */) {
  * 12345, 7    => '12345.00'
  * 12.345, 4   => '12.35'
  */
-function toPrecision(/* number, precision */) {
-  throw new Error('Not implemented');
+function toPrecision(number, precision) {
+  const result = number.toPrecision(precision);
+  return result;
 }
 
 /**
